@@ -10,8 +10,9 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zwonb.sunnyweather.MainActivity
 import com.zwonb.sunnyweather.R
@@ -25,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_place.*
  */
 class PlaceFragment : Fragment() {
 
-    val viewModel by lazy { ViewModelProviders.of(this)[PlaceViewModel::class.java] }
+    val viewModel by viewModels<PlaceViewModel> { ViewModelProvider.NewInstanceFactory() }
 
     lateinit var adapter: PlaceAdapter
 

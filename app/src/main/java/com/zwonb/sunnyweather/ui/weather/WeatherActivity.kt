@@ -10,11 +10,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.zwonb.sunnyweather.R
 import com.zwonb.sunnyweather.logic.model.Weather
 import com.zwonb.sunnyweather.logic.model.getSky
@@ -27,7 +28,7 @@ import java.util.*
 
 class WeatherActivity : AppCompatActivity() {
 
-    val viewModel by lazy { ViewModelProviders.of(this).get(WeatherViewModel::class.java) }
+    val viewModel by viewModels<WeatherViewModel> { ViewModelProvider.NewInstanceFactory() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
